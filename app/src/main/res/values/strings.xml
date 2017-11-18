@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">IsProject</string>
+    <string name="app_name">midtermtest</string>
+    <string name="options">options</string>
+
+
+    <string name="Quit">Quit</string>
+
+
 </resources>
