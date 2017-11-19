@@ -27,7 +27,8 @@ public class TicTacToeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {  // to add the options overflow in action bar
         MenuInflater mi = getMenuInflater();
         mi.inflate(R.menu.actionbar, menu);
-        return true;    }
+        return true;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,8 +141,6 @@ public class TicTacToeActivity extends AppCompatActivity {
                 }
             }
         });
-
-
 
     }
 }
