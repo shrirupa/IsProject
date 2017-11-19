@@ -123,7 +123,7 @@ public class Board {
                         // Call minimax recursively and choose
                         // the minimum value
                         best = Math.min(best,
-                                minimax(board, depth+1, !isMax));
+                                minimax(board, depth+1, isMax));
 
                         // Undo the move
                         board[i][j] = '_';
