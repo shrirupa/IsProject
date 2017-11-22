@@ -16,7 +16,7 @@ public class Board {
     }
 
     public static Move findBestMove(char[][] board) {
-        int bestVal = -1000;
+        int bestVal = 1000;
         Move bestMove = new Move(-1, -1);
 
         if (!isMovesLeft(board)) {
@@ -55,7 +55,7 @@ public class Board {
                     // If the value of the current move is
                     // more than the best value, then update
                     // best/
-                    if (moveVal > bestVal)
+                    if (moveVal < bestVal)
                     {
                         bestMove.setRow(i);
                         bestMove.setCol(j);
