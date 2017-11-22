@@ -137,7 +137,7 @@ public class Board {
 
                         // Call minimax recursively and choose
                         // the minimum value
-                        val = minimax(board, depth + 1, isMax, alpha, beta);
+                        val = minimax(board, depth + 1, !isMax, alpha, beta);
                         best = Math.min(best, val);
                         beta = Math.min(alpha, best);
                         if (beta <= alpha) {
