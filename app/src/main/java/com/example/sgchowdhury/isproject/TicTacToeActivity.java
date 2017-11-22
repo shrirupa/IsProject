@@ -2,6 +2,7 @@ package com.example.sgchowdhury.isproject;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -59,7 +60,7 @@ public class TicTacToeActivity extends AppCompatActivity {
                 if(!b1.getText().equals("X") && !b1.getText().equals("O"))
                 {
                     b1.setText("X");
-                    board[0][0]='X';
+                    board[0][0]='x';
 
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
@@ -67,24 +68,25 @@ public class TicTacToeActivity extends AppCompatActivity {
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    board[move.getRow()][move.getCol()] = 'O';
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    board[move.getRow()][move.getCol()] = 'o';
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
@@ -95,31 +97,33 @@ public class TicTacToeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(!b2.getText().equals("X") && !b2.getText().equals("O"))
                 {
-                    b2.setText("X");
-                    board[0][1]=2;
+                    b2.setText("x");
+                    board[0][1]='x';
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
                             passBoard[i][j] = board[i][j];
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    board[move.getRow()][move.getCol()] = 'o';
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
@@ -131,31 +135,32 @@ public class TicTacToeActivity extends AppCompatActivity {
                 if(!b3.getText().equals("X") && !b3.getText().equals("O"))
                 {
                     b3.setText("X");
-                    board[0][2]=2;
+                    board[0][2]='x';
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
                             passBoard[i][j] = board[i][j];
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    board[move.getRow()][move.getCol()] = 'O';
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    board[move.getRow()][move.getCol()] = 'o';
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
@@ -167,30 +172,32 @@ public class TicTacToeActivity extends AppCompatActivity {
                 if(!b4.getText().equals("X") && !b4.getText().equals("O"))
                 {
                     b4.setText("X");
-                    board[1][0]=2;
+                    board[1][0]='x';
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
                             passBoard[i][j] = board[i][j];
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    board[move.getRow()][move.getCol()] = 'o';
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
@@ -202,31 +209,32 @@ public class TicTacToeActivity extends AppCompatActivity {
                 if(!b5.getText().equals("X") && !b5.getText().equals("O"))
                 {
                     b5.setText("X");
-                    board[1][1]=2;
+                    board[1][1]='x';
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
                             passBoard[i][j] = board[i][j];
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    board[move.getRow()][move.getCol()] = 'O';
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    board[move.getRow()][move.getCol()] = 'o';
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
@@ -238,31 +246,32 @@ public class TicTacToeActivity extends AppCompatActivity {
                 if(!b6.getText().equals("X") && !b6.getText().equals("O"))
                 {
                     b6.setText("X");
-                    board[1][2]=2;
+                    board[1][2]='x';
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
                             passBoard[i][j] = board[i][j];
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    board[move.getRow()][move.getCol()] = 'O';
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    board[move.getRow()][move.getCol()] = 'o';
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
@@ -274,31 +283,32 @@ public class TicTacToeActivity extends AppCompatActivity {
                 if(!b7.getText().equals("X") && !b7.getText().equals("O"))
                 {
                     b7.setText("X");
-                    board[2][0]=2;
+                    board[2][0]='x';
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
                             passBoard[i][j] = board[i][j];
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    board[move.getRow()][move.getCol()] = 'O';
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    board[move.getRow()][move.getCol()] = 'o';
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
@@ -310,31 +320,32 @@ public class TicTacToeActivity extends AppCompatActivity {
                 if(!b8.getText().equals("X") && !b8.getText().equals("O"))
                 {
                     b8.setText("X");
-                    board[2][1]=2;
+                    board[2][1]='x';
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
                             passBoard[i][j] = board[i][j];
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    board[move.getRow()][move.getCol()] = 'O';
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    board[move.getRow()][move.getCol()] = 'o';
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
@@ -346,31 +357,32 @@ public class TicTacToeActivity extends AppCompatActivity {
                 if(!b9.getText().equals("X") && !b9.getText().equals("O"))
                 {
                     b9.setText("X");
-                    board[2][2]=2;
+                    board[2][2]='x';
                     for (int i=0;i<3;i++)
                         for (int j=0;j<3;j++){
                             passBoard[i][j] = board[i][j];
                         }
 
                     Move move = Board.findBestMove(passBoard);
-                    board[move.getRow()][move.getCol()] = 'O';
-                    if ((move.getRow()+1)*move.getRow() + move.getCol()+1== 9)
+                    board[move.getRow()][move.getCol()] = 'o';
+                    Log.d("move", move.getRow()+","+move.getCol());
+                    if (3*(move.getRow()) + move.getCol()+1== 9)
                         b9.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 8)
+                    else if(3*(move.getRow()) + move.getCol()+1== 8)
                         b8.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 7)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 7)
                         b7.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 6)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 6)
                         b6.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 5)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 5)
                         b5.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 4)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 4)
                         b4.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 3)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 3)
                         b3.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 2)
+                    else if(3*(move.getRow()) + move.getCol()+1 == 2)
                         b2.setText("O");
-                    else if((move.getRow()+1)*move.getRow() + move.getCol()+1 == 1)
+                    else if(3*(move.getRow()) + move.getCol()+1== 1)
                         b1.setText("O");
                 }
             }
