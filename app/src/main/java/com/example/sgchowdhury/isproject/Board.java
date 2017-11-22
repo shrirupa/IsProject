@@ -47,7 +47,7 @@ public class Board {
 
                     // compute evaluation function for this
                     // move.
-                    int moveVal = minimax(board, 0, true, -1000, +1000);
+                    int moveVal = minimax(board, 0, true);
 
                     // Undo the move
                     board[i][j] = '_';
@@ -69,7 +69,7 @@ public class Board {
         return bestMove;
     }
 
-    private static int minimax(char[][] board, int depth, boolean isMax, int alpha, int beta) {
+    private static int minimax(char[][] board, int depth, boolean isMax) {
         int score = evaluate(board);
 
         // If Maximizer has won the game return his/her
@@ -105,12 +105,12 @@ public class Board {
 
                         // Call minimax recursively and choose
                         // the maximum value
-                        val = minimax(board, depth + 1, !isMax, alpha, beta);
+                        val = minimax(board, depth + 1, !isMax);
                         best = Math.max( best, val);
-                        alpha = Math.max(alpha, best);
-                        if (beta <= alpha) {
-                            break;
-                        }
+                        //alpha = Math.max(alpha, best);
+                        //if (beta <= alpha) {
+                        //    break;
+                        //}
                         // Undo the move
                         board[i][j] = '_';
                     }
@@ -137,12 +137,12 @@ public class Board {
 
                         // Call minimax recursively and choose
                         // the minimum value
-                        val = minimax(board, depth + 1, !isMax, alpha, beta);
+                        val = minimax(board, depth + 1, !isMax);
                         best = Math.min(best, val);
-                        beta = Math.min(alpha, best);
-                        if (beta <= alpha) {
-                            break;
-                        }
+                        //beta = Math.min(alpha, best);
+                        //if (beta <= alpha) {
+                        //    break;
+                        //}
                         // Undo the move
                         board[i][j] = '_';
                     }
