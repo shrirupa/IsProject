@@ -47,7 +47,7 @@ public class Board {
 
                     // compute evaluation function for this
                     // move.
-                    int moveVal = minimax(board, 0, true);
+                    int moveVal = minimax(board, 0, true, -10000, 10000);
 
                     // Undo the move
                     board[i][j] = '_';
@@ -69,7 +69,7 @@ public class Board {
         return bestMove;
     }
 
-    private static int minimax(char[][] board, int depth, boolean isMax) {
+    private static int minimax(char[][] board, int depth, boolean isMax, int alpha, int beta) {
         int score = evaluate(board);
 
         // If Maximizer has won the game return his/her
@@ -90,11 +90,13 @@ public class Board {
         // If this maximizer's move
         if (isMax)
         {
-            int best = -1000;
+            int best = -10000;
             int val;
+            boolean check = false;
             // Traverse all cells
             for (int i = 0; i<3; i++)
             {
+                if (!check)
                 for (int j = 0; j<3; j++)
                 {
                     // Check if cell is empty
@@ -105,12 +107,14 @@ public class Board {
 
                         // Call minimax recursively and choose
                         // the maximum value
-                        val = minimax(board, depth + 1, !isMax);
+                        val = minimax(board, depth + 1, !isMax, alpha, beta);
                         best = Math.max( best, val);
-                        //alpha = Math.max(alpha, best);
-                        //if (beta <= alpha) {
-                        //    break;
-                        //}
+                        alpha = Math.max(alpha, best);
+                        if (beta <= alpha) {
+                            board[i][j] = '_';
+                            check = true;
+                            break;
+                        }
                         // Undo the move
                         board[i][j] = '_';
                     }
@@ -122,11 +126,13 @@ public class Board {
         // If this minimizer's move
         else
         {
-            int best = 1000;
+            int best = 10000;
             int val;
+            boolean check = false;
             // Traverse all cells
             for (int i = 0; i<3; i++)
             {
+                if (!check)
                 for (int j = 0; j<3; j++)
                 {
                     // Check if cell is empty
@@ -137,12 +143,14 @@ public class Board {
 
                         // Call minimax recursively and choose
                         // the minimum value
-                        val = minimax(board, depth + 1, !isMax);
+                        val = minimax(board, depth + 1, !isMax, alpha, beta);
                         best = Math.min(best, val);
-                        //beta = Math.min(alpha, best);
-                        //if (beta <= alpha) {
-                        //    break;
-                        //}
+                        beta = Math.min(alpha, best);
+                        if (beta <= alpha) {
+                            board[i][j] = '_';
+                            check = true;
+                            break;
+                        }
                         // Undo the move
                         board[i][j] = '_';
                     }
