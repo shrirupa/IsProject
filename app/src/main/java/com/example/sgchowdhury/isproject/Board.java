@@ -19,7 +19,19 @@ public class Board {
         int bestVal = -1000;
         Move bestMove = new Move(-1, -1);
 
-
+        if (!isMovesLeft(board)) {
+            int val = evaluate(board);
+            if (val == 10) {
+                bestMove.setRow(1000);
+                bestMove.setCol(1000);
+            } else if (val == -10){
+                bestMove.setRow(-1000);
+                bestMove.setCol(-1000);
+            } else {
+                return bestMove;
+            }
+            return bestMove;
+        }
         // Traverse all cells, evaluate minimax function for
         // all empty cells. And return the cell with optimal
         // value.
@@ -31,11 +43,11 @@ public class Board {
                 if (board[i][j]=='_')
                 {
                     // Make the move
-                    board[i][j] = player;
+                    board[i][j] = opponent;
 
                     // compute evaluation function for this
                     // move.
-                    int moveVal = minimax(board, 0, false, -1000, +1000);
+                    int moveVal = minimax(board, 0, true, -1000, +1000);
 
                     // Undo the move
                     board[i][j] = '_';
