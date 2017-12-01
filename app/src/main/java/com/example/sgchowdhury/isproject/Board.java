@@ -16,7 +16,7 @@ public class Board {
     }
 
     public static Move findBestMove(char[][] board) {
-        int bestVal = -1000;
+        int bestVal = 1000;
         Move bestMove = new Move(-1, -1);
 
         if (!isMovesLeft(board)) {
@@ -47,7 +47,7 @@ public class Board {
 
                     // compute evaluation function for this
                     // move.
-                    int moveVal = minimax(board, 0, true, -1000, +1000);
+                    int moveVal = minimax(board, 0, true, -10000, 10000);
 
                     // Undo the move
                     board[i][j] = '_';
@@ -55,7 +55,7 @@ public class Board {
                     // If the value of the current move is
                     // more than the best value, then update
                     // best/
-                    if (moveVal > bestVal)
+                    if (moveVal < bestVal)
                     {
                         bestMove.setRow(i);
                         bestMove.setCol(j);
@@ -90,11 +90,13 @@ public class Board {
         // If this maximizer's move
         if (isMax)
         {
-            int best = -1000;
+            int best = -10000;
             int val;
+            boolean check = false;
             // Traverse all cells
             for (int i = 0; i<3; i++)
             {
+                if (!check)
                 for (int j = 0; j<3; j++)
                 {
                     // Check if cell is empty
@@ -109,6 +111,8 @@ public class Board {
                         best = Math.max( best, val);
                         alpha = Math.max(alpha, best);
                         if (beta <= alpha) {
+                            board[i][j] = '_';
+                            check = true;
                             break;
                         }
                         // Undo the move
@@ -122,11 +126,13 @@ public class Board {
         // If this minimizer's move
         else
         {
-            int best = 1000;
+            int best = 10000;
             int val;
+            boolean check = false;
             // Traverse all cells
             for (int i = 0; i<3; i++)
             {
+                if (!check)
                 for (int j = 0; j<3; j++)
                 {
                     // Check if cell is empty
@@ -141,6 +147,8 @@ public class Board {
                         best = Math.min(best, val);
                         beta = Math.min(alpha, best);
                         if (beta <= alpha) {
+                            board[i][j] = '_';
+                            check = true;
                             break;
                         }
                         // Undo the move
