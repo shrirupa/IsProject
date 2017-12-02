@@ -9,14 +9,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Button playButton;
+    RadioGroup rg;
+
     public boolean onOptionsItemSelected(MenuItem item) {
         // what the item does on selection
 
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
 
             case R.id.action_quit:
                 finishAffinity();  // to finish current activity and all parent activity
@@ -25,25 +28,51 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {  // to add the options overflow in action bar
         MenuInflater mi = getMenuInflater();
         mi.inflate(R.menu.actionbar, menu);
-        return true;    }
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rg = (RadioGroup) findViewById(R.id.radioGroup);
+
         playButton = (Button) findViewById(R.id.playButton);
+
+
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,TicTacToeActivity.class);
-                startActivity(intent);
+                int a = rg.getCheckedRadioButtonId();
+                if (a == R.id.radioButton4) {
+                    Intent intent = new Intent(MainActivity.this, TicTacToeActivity.class);
+                    startActivity(intent);
+                }
+
+                if (a == R.id.radioButton3) {
+                    Intent intent = new Intent(MainActivity.this, NTicTacToeActivity.class);
+                    intent.putExtra("n", 3);
+                    startActivity(intent);
+                }
+
+                if (a == R.id.radioButton){
+                    Intent intent = new Intent(MainActivity.this, NTicTacToeActivity.class);
+                    intent.putExtra("n", 9);
+                    startActivity(intent);
+
+                }
 
             }
         });
 
+
     }
+
+
 }
